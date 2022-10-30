@@ -1,4 +1,5 @@
 # Add our dependencies
+from asyncore import write
 import csv
 from email import header
 import os
@@ -20,6 +21,8 @@ winning_percentage = 0
     # Open the eletion results and read the file.
 with open(file_to_load) as election_data:
     file_reader = csv.reader(election_data)
+
+
     # Read the header row.
     headers = next(file_reader)
     # Print each row in the CSV file.
@@ -40,7 +43,24 @@ with open(file_to_load) as election_data:
         #2.Begin tracking that candidate's vote count.
             candidate_votes[candidate_name]=0
         # Add a vote to the candidate's count
-        candidate_votes[candidate_name]+=1
+        # Save the results to our text file
+            candidate_votes[candidate_name]+=1
+with open(file_to_save, "w") as txt_file:
+    
+    
+# Print the final vote count to the terminal.
+    election_results = (
+        f"\nElection Results\n"
+        f"-------------------------\n"
+        f"Total Votes: {total_votes:,}\n"
+        f"-------------------------\n")
+    print(election_results, end="")
+    # Save the final vote count to the text file.
+    txt_file.write(election_results)
+    
+
+
+
         # Determine the percentage of votes for each candidate by looping through the chart
         #1. Iterate through the candidate list
     for candidate_name in candidate_votes:
@@ -75,6 +95,7 @@ with open(file_to_load) as election_data:
     f"Winning Percentage: {winning_percentage:.1f}%\n"
     f"-------------------------\n")
     print(winning_candidate_summary)
+
     
             
 
