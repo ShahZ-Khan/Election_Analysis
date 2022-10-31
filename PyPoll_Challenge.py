@@ -7,7 +7,8 @@ import csv
 import os
 
 # Add a variable to load a file from a path.
-file_to_load = os.path.join("..", "Resources", "election_results.csv")
+#file_to_load = os.path.join("..", "Resources", "election_results.csv")
+file_to_load = os.path.join("election_results.csv")
 # Add a variable to save the file to a path.
 file_to_save = os.path.join("analysis", "election_analysis.txt")
 
@@ -19,7 +20,7 @@ candidate_options = []
 candidate_votes = {}
 
 # 1: Create a county list and county votes dictionary.
-County_list = []
+county_name = []
 County_votes = {}
 
 
@@ -51,7 +52,7 @@ with open(file_to_load) as election_data:
         candidate_name = row[2]
 
         # 3: Extract the county name from each row.
-        county_name = [1]
+        county_name = row[1]
 
         # If the candidate does not match any existing candidate add it to
         # the candidate list
@@ -74,10 +75,10 @@ with open(file_to_load) as election_data:
             county_name.append(county_name)
 
             # 4c: Begin tracking the county's vote count.
-            County_votes[county_name]=0
+            County_votes[county_name] = 0
 
         # 5: Add a vote to that county's vote count.
-            County_votes[county_name]+=0
+            County_votes[county_name]+=1
 
 
 # Save the results to our text file.
@@ -95,7 +96,7 @@ with open(file_to_save, "w") as txt_file:
     txt_file.write(election_results)
 
     # 6a: Write a for loop to get the county from the county dictionary.
-    for county in County_list:
+    for county in County_votes:
         # 6b: Retrieve the county vote count.
         County_votes=County_votes.get(county)
         # 6c: Calculate the percentage of votes for the county.
@@ -158,4 +159,4 @@ with open(file_to_save, "w") as txt_file:
 
     # Save the winning candidate's name to the text file
     txt_file.write(winning_candidate_summary)
-    
+
