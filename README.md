@@ -14,7 +14,7 @@ A Colorado Board of Elections employee has given you the following tasks to comp
 - Software: Python 3.6.1, Visual Studio Code, 1.38.1
 
 ## Summary
-The analysis ofvthe eletion show that:
+The analysis of the eletion show that:
 - There were "369,711" votes cast in the election.
 - The Candidates were:
       - Charles Casper Stockham
@@ -30,4 +30,20 @@ The analysis ofvthe eletion show that:
     ## Callenge Overview
     
     ## Challenge Summary
+    
+    # Overview of Election Audit
+    The purpose of the audit is to understand and determine the election results, breakdown of each candidates performance, also how each candidate did in the county's.
+    
+    # Election-Audit Results:
+    - Total votes "369,711"
+    - Jefferson 10.5% (38,855)
+    - Denver 82.8% (306,055)
+    - Arapahoee 6.7% (24,801)
+    - largest county turnout (Denver)
+    - Charles Casper Stockham: 23.0% (85,213)
+    - Diana DeGette: 73.8% (272,892)
+    - Raymon Anthony Doane: 3.1% (11,606)
+    - Diana DeGette won the election, she had 272,892 votes and 73.8% of the total vote
+
+    # Election-Audit Summary
     
