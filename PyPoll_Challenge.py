@@ -20,7 +20,7 @@ candidate_options = []
 candidate_votes = {}
 
 # 1: Create a county list and county votes dictionary.
-county_name = []
+county_names = []
 County_votes = {}
 
 
@@ -69,10 +69,10 @@ with open(file_to_load) as election_data:
 
         # 4a: Write an if statement that checks that the
         # county does not match any existing county in the county list.
-        if county_name not in county_name:
+        if county_name not in county_names:
 
             # 4b: Add the existing county to the list of counties.
-            county_name.append(county_name)
+            county_names.append(county_name)
 
             # 4c: Begin tracking the county's vote count.
             County_votes[county_name] = 0
@@ -104,13 +104,13 @@ with open(file_to_save, "w") as txt_file:
 
          # 6d: Print the county results to the terminal.
         county_results = (
-            f"{county}: {County_votes_percentage:.if}% ({County_vote:,})\n")
+            f"{county}: {County_votes_percentage:.1f}% ({County_vote:,})\n")
         print(county_results,end="")
          # 6e: Save the county votes to a text file.
         txt_file. write(county_results)
          # 6f: Write an if statement to determine the winning county and get its vote count.
-        if (County_vote > largest_county_turnout)  and (County_votes_percentage > largest_county_turnout):
-            largest_county_vote = County_vote
+        if (County_vote > largest_county_voter):
+            largest_county_voter = County_vote
             # largest_county_turnout = County_votes_percentage
             largest_county_turnout = county
         
